@@ -17,5 +17,5 @@ class RegisterApi(CreateAPIView):
         ## aslında kullandığımız 3rd part auth methodu token üretip siliyor zaten..
         serializer.save()
         return Response({
-            "message": "User created successfully"
+            "message": "User created successfully..."
         })

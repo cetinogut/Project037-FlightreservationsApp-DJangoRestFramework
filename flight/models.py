@@ -11,8 +11,10 @@ class Flight(models.Model):
     dateOfDeparture = models.DateField()
     estimatedTimeOfDeparture = models.TimeField()
     
+    ordering = ['flightNumber']
+    
     def __str__(self):
-        return f"{self.flightNumber} - {self.departureCity} - {self.arrivalCity}"
+        return f"{self.operatingAirlines} {self.flightNumber} {self.departureCity[0:3].upper()}-{self.arrivalCity[0:3].upper()}"
     
 class Passenger(models.Model):
     firstName = models.CharField(max_length=50)
@@ -32,4 +34,4 @@ class Reservation(models.Model):
     
     
     def __str__(self):
-        return f"{self.flight}" 
+        return f"{self.flight} {self.passenger} - {self.user}"

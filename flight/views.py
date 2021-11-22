@@ -10,7 +10,7 @@ class FlightView(viewsets.ModelViewSet):
     queryset = Flight.objects.all()
     serializer_class = FlightSerializer
     permisisons_class=(IsStuffOrReadOnly,)
-    filter_backends= (filters.SearchFilter,)
+    filter_backends= (filters.SearchFilter,) ##added for search
     search_fields = ('departureCity', 'arrivalCity', 'dateOfDeparture')
     
     def get_serializer_class(self):
